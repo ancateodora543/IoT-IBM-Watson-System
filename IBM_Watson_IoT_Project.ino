@@ -1,20 +1,3 @@
-/***************************************************
-  Adafruit MQTT Library ESP8266 Example
-
-  Must use ESP8266 Arduino from:
-    https://github.com/esp8266/Arduino
-
-  Works great with Adafruit's Huzzah ESP board & Feather
-  ----> https://www.adafruit.com/product/2471
-  ----> https://www.adafruit.com/products/2821
-
-  Adafruit invests time and resources providing this open source code,
-  please support Adafruit and open-source hardware by purchasing
-  products from Adafruit!
-
-  Written by Tony DiCola for Adafruit Industries.
-  MIT license, all text above must be included in any redistribution
- ****************************************************/
 #include <ESP8266WiFi.h>
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
@@ -70,8 +53,8 @@ long lastPublishMillis;
 
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  8883                   // use 8883 for SSL
-#define AIO_USERNAME    "anca_teodora"
-#define AIO_KEY         "afd08534fee84a6b9f1984bd9b39e45c"
+#define AIO_USERNAME    
+#define AIO_KEY         
 
 /************ Global State (you don't need to change this!) ******************/
 
@@ -135,20 +118,7 @@ void setup() {
   mqtt.subscribe(&alarm_temperature);
   mqtt.subscribe(&alarm_humidity);
   mqtt.subscribe(&alarm_UV);
-
-//IBM
-/*Serial.print("Trying to connect to ");
-      Serial.println(clientId);
-      client.connect(clientId, "use-token-auth", token);
-      while (!!!client.connect(clientId, authMethod, token)){
-      delay(500);
-      Serial.print(".");
-      }
-      Serial.println("Success");
-*/
-   /////////////
- 
-   delay(200);
+  delay(200);
    
     mqttConnect();
     MQTT_connect();
@@ -199,27 +169,7 @@ mqttConnect();
   publish_u();
   delay(500);
   client.disconnect();
- /* if (!client.loop()) {
-    mqttConnect();
-  }
-  */
- /* while(millis() - lastPublishMillis > publishInterval)
-  { temp = t;
-  publish_t();
-  umid = h;
-  publish_h();
-  UV = u;
-  publish_u();
-  lastPublishMillis = millis();
-  }
-  delay(500);
-  if (!client.loop()) {
-    mqttConnect();
-  }
-  delay(1000);
-*/
-  // this is our 'wait for incoming subscription packets' busy subloop
-  // try to spend your time here
+  
   MQTT_connect();
   Adafruit_MQTT_Subscribe *subscription;
   while ((subscription = mqtt.readSubscription(2000))) {
@@ -316,18 +266,7 @@ mqttConnect();
     }
   }
 
- /*temp = t;
-  publish_t();
-  umid = h;
-  publish_h();
-  UV = u;
-  publish_u();
-  delay(500);
-  if (!client.loop()) {
-    mqttConnect();
-  }
-  */
-
+ 
 
   // Now we can publish stuff!
   Serial.print(F("\nSe incarca valoarea temperaturii pe ADAFRUIT --> "));
