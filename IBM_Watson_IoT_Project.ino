@@ -25,8 +25,8 @@ boolean isAlarm_hum;
 boolean isAlarm_UV;
 /************ WiFi Access Point *********************************/
 
-#define WLAN_SSID       "ASUS_X008D"
-#define WLAN_PASS       "anca1997"
+#define WLAN_SSID       
+#define WLAN_PASS       
 
 
 /************************* IBM Watson *********************************/
